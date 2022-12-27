@@ -1,0 +1,56 @@
+.NavigateProducts {
+    margin: 16px 0;
+}
+
+.NavigateProducts > .top > ol{
+    list-style: none;
+    display: flex;
+}
+
+.NavigateProducts > .top{
+    margin: 16px 0;
+    font-size: 14px;
+}
+
+.NavigateProducts > .top > ol > li {
+   padding-right: 8px;
+}
+
+.NavigateProducts > .top > ol > li >a {
+    text-decoration: none;
+}
+
+.NavigateProducts > .top > ol > .link::after{
+    content: "/";
+    padding-left: 4px;
+    color: #6f787e;
+    font-weight: 200;
+    opacity: 0.7;
+}
+
+.NavigateProducts > .top > ol > li > a{
+    color: #0f62fe;
+}
+
+
+#last{
+    color: #6f787e;
+}
+
+#last::after{
+    content: "";
+}
+
+
+.NavigateProducts > .bottom{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+
+.NavigateProducts > .bottom > strong{
+    margin-right: 12px;
+    font-size: 20px;
+    font-weight: 700;
+}

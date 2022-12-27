@@ -1,0 +1,74 @@
+.Outlet-DefaultProduct{
+    max-width: 1308px;
+    margin: 0 auto;
+}
+
+.contenter{
+    min-height: 1000px;
+    display: flex;
+}
+
+.NavigateManegerProduct{
+    flex: 1;
+    padding: 8px;
+    padding-left: 0px;
+}
+
+.contenter-outlet{
+    flex: 6;
+    margin-left: 24px;
+}
+
+
+.FooterLayoutProduct > .top {
+    display: flex;
+    padding: 24px 0px;
+    max-width: 1308px;
+    margin: 0 auto;
+}
+
+.FooterLayoutProduct > .top  > .content{
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+}
+
+.FooterLayoutProduct > .top  > .content > img{
+    width: 130px;
+}
+
+.FooterLayoutProduct > .top  > .content > p{
+    color: black;
+    font-weight: 600;
+    margin: 8px 0;
+}
+
+.FooterLayoutProduct > .top  > .content > span{
+    color: #6f787e;
+    font-weight: 400;
+}
+
+.FooterLayoutProduct > .center{
+    display: flex;
+    padding: 36px 0;
+    background-color: #f2f3f4;
+    justify-content: center;
+}
+
+.FooterLayoutProduct > .center >.content{
+    width: calc(1308px / 4);
+    cursor: pointer;
+}
+
+.FooterLayoutProduct > .center >.content > ul{
+    list-style: none;
+}
+
+.FooterLayoutProduct > .center >.content > p{
+    color: #0f1e29;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 0;
+}
+
+
