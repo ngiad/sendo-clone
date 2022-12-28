@@ -8,8 +8,6 @@ import "./HeaderDefauProducts.css"
 
 
 const HeaderDefauProducts = () => {
-
-
   return (
     <div className='HeaderDefauProducts'>
       <div className="top">

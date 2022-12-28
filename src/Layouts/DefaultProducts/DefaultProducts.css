@@ -1,3 +1,7 @@
+.DefaultProduct{
+    background-color: #f2f3f4;
+}
+
 .Outlet-DefaultProduct{
     max-width: 1308px;
     margin: 0 auto;
@@ -19,31 +23,35 @@
     margin-left: 24px;
 }
 
+.FooterLayoutProduct > .top{
+    background: #fff;
+}
 
-.FooterLayoutProduct > .top {
+
+.FooterLayoutProduct > .top > .contener {
     display: flex;
     padding: 24px 0px;
     max-width: 1308px;
     margin: 0 auto;
 }
 
-.FooterLayoutProduct > .top  > .content{
+.FooterLayoutProduct > .top > .contener  > .content{
     flex: 1;
     text-align: center;
     font-size: 12px;
 }
 
-.FooterLayoutProduct > .top  > .content > img{
+.FooterLayoutProduct > .top > .contener  > .content > img{
     width: 130px;
 }
 
-.FooterLayoutProduct > .top  > .content > p{
+.FooterLayoutProduct > .top > .contener  > .content > p{
     color: black;
     font-weight: 600;
     margin: 8px 0;
 }
 
-.FooterLayoutProduct > .top  > .content > span{
+.FooterLayoutProduct > .top > .contener  > .content > span{
     color: #6f787e;
     font-weight: 400;
 }

@@ -1,17 +1,96 @@
 .Products > .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    background-color: #2196F3;
     padding: 10px;
     margin-top: 12px;
 }
 
 .Products > .grid-container > .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    font-size: 30px;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 8px;
+    border-radius: 8px;
+    margin: 8px;
+    margin-left: 0;
+    font-size: 14px;
+    min-height: 365px;
+}
+
+.Products > .grid-container > .grid-item > .top >p,
+.Products > .grid-container > .grid-item > .center >p,
+.Products > .grid-container > .grid-item > .bottom >p{
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    margin: 8px 0;
+}
+
+.Products > .grid-container > .grid-item > .default-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+
+.Products > .grid-container > .grid-item > .top > img,
+.Products > .grid-container > .grid-item > .center > img{
+    max-width: 200px;
+    border-radius: 8px;
+}
+
+.Products > .grid-container > .grid-item,
+.dealHot,
+.hotSale{
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.Products > .grid-container > .grid-item > .top,
+.dealHot > .top,
+.hotSale > .top{
+    flex: 2;
+}
+
+.dealHot > .top > img{
+    width: 180px;
+}
+
+.hotSale > .top > img{
+    width: 100px;
+}
+
+
+.Products > .grid-container > .grid-item > .center,
+.dealHot > .center,
+.hotSale > .center{
+    flex: 3;
+}
+
+.dealHot > .center > img, 
+.hotSale > .center >img{
+    border-radius: 8px;
+}
+
+.Products > .grid-container > .grid-item > .bottom{
+    flex: 1;
+    font-size: 12px;
+    font-weight: 500;
+}
+.dealHot > .bottom,
+.hotSale > .bottom{
+    flex: 1;
+}
+
+.sales{
+    background-color: #f47c7b;
     text-align: center;
+    color: #fff;
+    padding: 2px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 10px;
 }
 
 .Products >  .top{
@@ -31,4 +110,31 @@
     border: 1px solid #cfd2d4;
     border-radius:4px ;
 }
+
+
+.addProduct{
+    display: flex;
+    justify-content: center;
+    margin: 24px;
+}
+
+.addProduct > button{
+    cursor: pointer;
+    border: none;
+    padding: 12px 125px;
+    font-size: 14px;
+    line-height: 1.29;
+    background-color: #fff;
+    border: 1px solid #fff;
+    font-weight: 700;
+    border-radius: 4px;
+    color: #3f4b53;
+    transition: all .25s ease,color .25s ease;
+}
+
+.addProduct > button:hover{
+    background: #cfd2d4;
+}
+
+
 

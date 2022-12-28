@@ -9,7 +9,7 @@ import "./DefaultProducts.css"
 
 const DefaultProduct = () => {
   return (
-    <div>
+    <div className='DefaultProduct'>
         <HeaderDefauProducts />
         <div className='Outlet-DefaultProduct'> 
             <NavigateProducts/>
