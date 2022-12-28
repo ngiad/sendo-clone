@@ -92,6 +92,19 @@ const data = [
     place: "Phú thọ",
     discount: 66,
   },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "zzz",
+    trademark: "OEM",
+    Dealsforyou: true,
+    price: 250000,
+    sales: 10,
+    dealHot: true,
+    hotSale: false,
+    place: "Phú thọ",
+    discount: 66,
+  },
 ];
 
 const checkProductFilter = (product, Arrquery) => {
@@ -139,6 +152,10 @@ const Context = ({ children }) => {
       output = data;
     }
 
+    if (InputFilter.search) {
+      output = output.filter((item) => item.name.includes(InputFilter.search));
+    }
+
     if (InputFilter.max && InputFilter.min) {
       output = output.filter((item) =>
         item.discount === 0
@@ -183,11 +200,10 @@ const Context = ({ children }) => {
       );
     }
 
-
     return output;
   }, [InputFilter]);
 
-  console.log(RenderProducts)
+  console.log(RenderProducts);
 
   const context = {
     Query,
