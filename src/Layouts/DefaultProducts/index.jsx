@@ -7,6 +7,8 @@ import NavigateProducts from '../../Components/NavigateProducts'
 
 import "./DefaultProducts.css"
 
+
+
 const DefaultProduct = () => {
   return (
     <div className='DefaultProduct'>
