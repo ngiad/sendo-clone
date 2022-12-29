@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { ProductsContext } from '../Context'
 
 import "./NavigateProduct.css"
 
-const NavigateProducts = ({Count = 10000}) => {
+const NavigateProducts = () => {
+  const { countProduct } = useContext(ProductsContext)
   return (
     <div className='NavigateProducts'>
       <div className='top'>
@@ -22,7 +24,7 @@ const NavigateProducts = ({Count = 10000}) => {
           </li>
         </ol>
       </div>
-      <div className='bottom'><strong>Đầm xòe</strong> Tìm thấy hơn {new Intl.NumberFormat(['ban', 'id']).format(Count)} sản phẩm </div>
+      <div className='bottom'><strong>Đầm xòe</strong> Tìm thấy hơn {new Intl.NumberFormat(['ban', 'id']).format(countProduct)} sản phẩm </div>
     </div>
   )
 }

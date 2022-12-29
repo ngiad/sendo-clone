@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react";
 import svgexport_3 from "../../Images/svgexport-3.svg";
 import svgexport_6 from "../../Images/svgexport-6.svg";
-import { Products } from "../Context";
+import { ProductsContext } from "../Context";
 
 const NavigateInMaegerProduct = () => {
-  const { Query, setQuery } = useContext(Products);
+  const { Query,InputFilter,setInputFilter } = useContext(ProductsContext);
 
   const [Open, setOpen] = useState({
     place: true,
@@ -17,9 +17,19 @@ const NavigateInMaegerProduct = () => {
   const handchangeInputNumber = (e) => {
     if(isNaN(e.target.value)) return 
 
-    setQuery({...Query,[e.target.id] : e.target.value})
+    setInputFilter({...InputFilter,[e.target.id] : e.target.value})
   }
 
+  const handleChangeCheckbox = (e) => {
+    if(InputFilter[e.target.name].filter(item => item === e.target.value).length) {
+      return setInputFilter({...InputFilter,[e.target.name] : [...InputFilter[e.target.name].filter(item => item !== e.target.value)]})
+    }
+
+    setInputFilter({...InputFilter,[e.target.name] : [...InputFilter[e.target.name],e.target.value]})
+  }
+
+
+  
 
   return (
     <div className="NavigateInMaegerProduct">
@@ -37,7 +47,7 @@ const NavigateInMaegerProduct = () => {
           Query.place.map((item, index) => {
             return (
               <div className="checkbox" key={index}>
-                <input type="checkbox" id={item} value={item} />{" "}
+                <input type="checkbox" onChange={handleChangeCheckbox} name="place" id={item} value={item} />
                 <label htmlFor={item}>
                   {item === "TP.HCM" ? "TP. Hồ chí minh" : item}
                 </label>
@@ -59,11 +69,11 @@ const NavigateInMaegerProduct = () => {
           <div>
             <div className="left">
               <label htmlFor="min">Thấp nhất</label>
-              <input onChange={handchangeInputNumber} value={Query.min} type="text" name="min" id="min" />
+              <input onChange={handchangeInputNumber} value={InputFilter.min} type="text" name="min" id="min" />
             </div>
             <div className="right">
               <label htmlFor="max">Cao nhất</label>
-              <input onChange={handchangeInputNumber} value={Query.max} type="text" name="min" id="max" />
+              <input onChange={handchangeInputNumber} value={InputFilter.max} type="text" name="max" id="max" />
             </div>
           </div>
         )}
@@ -81,11 +91,11 @@ const NavigateInMaegerProduct = () => {
         {Open.event && (
           <div>
             <div className="checkbox">
-              <input type="checkbox" id="dealHot" />
+              <input onChange={handleChangeCheckbox} value={"dealHot"} name="event" type="checkbox" id="dealHot" />
               <label htmlFor={"dealHot"}>Deal sốc</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="hotSale" />
+              <input onChange={handleChangeCheckbox} value={"hotSale"} name="event" type="checkbox" id="hotSale" />
               <label htmlFor={"hotSale"}>Flash Sale</label>
             </div>
           </div>
@@ -105,27 +115,27 @@ const NavigateInMaegerProduct = () => {
         {Open.material && (
           <div>
             <div className="checkbox">
-              <input type="checkbox" id="Tuyết-mưa" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Tuyết-mưa"} type="checkbox" id="Tuyết-mưa" />
               <label htmlFor={"Tuyết-mưa"}>Tuyết mưa</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="Kate" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Kate"} type="checkbox" id="Kate" />
               <label htmlFor={"Kate"}>Kate</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="Cát" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Cát"} type="checkbox" id="Cát" />
               <label htmlFor={"Cát"}>Cát</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="Lưới" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Lưới"} type="checkbox" id="Lưới" />
               <label htmlFor={"Lưới"}>Lưới</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="Chiffon" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Chiffon"}  type="checkbox" id="Chiffon" />
               <label htmlFor={"Chiffon"}>Chiffon</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="Khác" />
+              <input onChange={handleChangeCheckbox} name="material" value={"Khác"}  type="checkbox" id="Khác" />
               <label htmlFor={"Khác"}>Khác</label>
             </div>
           </div>
@@ -144,20 +154,20 @@ const NavigateInMaegerProduct = () => {
         {Open.else && (
           <div>
             <div className="checkbox">
-              <input type="checkbox" id="dealHot" />
-              <label htmlFor={"dealHot"}>Có video</label>
+              <input onChange={handleChangeCheckbox} id="Có-video"  type="checkbox" name="else" value="Có video"  />
+              <label htmlFor={"Có-video"}>Có video</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="dealHot" />
-              <label htmlFor={"dealHot"}>Hàng không bán</label>
+              <input id="Hàng-không-bán" onChange={handleChangeCheckbox} name="else" value="Hàng không bán"  type="checkbox" />
+              <label htmlFor={"Hàng-không-bán"}>Hàng không bán</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="dealHot" />
-              <label htmlFor={"dealHot"}>Chết không mua</label>
+              <input name="else" id="Chết-không-mua" onChange={handleChangeCheckbox} value="Chết không mua"  type="checkbox" />
+              <label htmlFor={"Chết-không-mua"}>Chết không mua</label>
             </div>
             <div className="checkbox">
-              <input type="checkbox" id="dealHot" />
-              <label htmlFor={"dealHot"}>Để cho vui</label>
+              <input name="else" id="Để-cho-vui" onChange={handleChangeCheckbox} value="Để cho vui"  type="checkbox"  />
+              <label htmlFor={"Để-cho-vui"}>Để cho vui</label>
             </div>
           </div>
         )}

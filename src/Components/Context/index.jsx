@@ -1,8 +1,8 @@
 import React, { createContext, useMemo, useState } from "react";
 
-export const Products = createContext();
+export const ProductsContext = createContext();
 const query = {
-  place: ["TP.HCM", "Đồng nai", "hà nội", "phú thọ"],
+  place: ["TP.HCM", "Đồng nai", "Hà nội", "Phú thọ"],
   max: "",
   min: "",
   dealHot: "",
@@ -78,7 +78,6 @@ const data = [
     place: "Phú thọ",
     discount: 0,
   },
-
   {
     image:
       "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
@@ -105,6 +104,19 @@ const data = [
     place: "Phú thọ",
     discount: 66,
   },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: true,
+    price: 190000,
+    sales: 10,
+    dealHot: true,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 66,
+  },
 ];
 
 const checkProductFilter = (product, Arrquery) => {
@@ -117,6 +129,18 @@ const checkProductFilter = (product, Arrquery) => {
 
   return found;
 };
+
+const checkProductFilterEvent = (product, Arrquery) => {
+  let found = false;
+  Arrquery.forEach((element) => {
+    if (product[element]) {
+      found = true;
+    }
+  });
+
+  return found;
+};
+
 
 const Context = ({ children }) => {
   const [Query, setQuery] = useState(query);
@@ -184,7 +208,7 @@ const Context = ({ children }) => {
 
     if (InputFilter.event.length) {
       output = output.filter((item) =>
-        checkProductFilter(item.event, InputFilter.event)
+      checkProductFilterEvent(item, InputFilter.event)
       );
     }
 
@@ -202,17 +226,19 @@ const Context = ({ children }) => {
 
     return output;
   }, [InputFilter]);
+ 
 
-  console.log(RenderProducts);
 
   const context = {
     Query,
     setQuery,
     RenderProducts,
     setInputFilter,
+    countProduct : RenderProducts.length,
+    InputFilter
   };
 
-  return <Products.Provider value={context}>{children}</Products.Provider>;
+  return <ProductsContext.Provider value={context}>{children}</ProductsContext.Provider>;
 };
 
 export default Context;

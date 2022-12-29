@@ -1,95 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import tragop from "../../Images/tragop.png";
 import dealsoctrongngay from "../../Images/dealsoctrongngay.png";
 import hotSale from "../../Images/hotSale.png";
+import { ProductsContext } from "../../Components/Context"
 import "./Products.css";
 
-const data = [
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: true,
-    price: 250000,
-    sales: 10,
-    dealHot: false,
-    hotSale: false,
-    place: "TP.HCM",
-    discount: 0,
-  },
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: true,
-    price: 250000,
-    sales: 10,
-    dealHot: false,
-    hotSale: false,
-    place: "Đồng nai",
-    discount: 0,
-  },
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: false,
-    price: 250000,
-    sales: 10,
-    dealHot: false,
-    hotSale: false,
-    place: "Hà nội",
-    discount: 0,
-  },
 
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: true,
-    price: 250000,
-    sales: 10,
-    dealHot: false,
-    hotSale: true,
-    place: "Phú thọ",
-    discount: 40,
-  },
-
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: true,
-    price: 250000,
-    sales: 10,
-    dealHot: false,
-    hotSale: false,
-    place: "Phú thọ",
-    discount: 0,
-  },
-
-  {
-    image:
-      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
-    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
-    trademark: "OEM",
-    Dealsforyou: true,
-    price: 250000,
-    sales: 10,
-    dealHot: true,
-    hotSale: false,
-    place: "Phú thọ",
-    discount: 66,
-  },
-];
 
 const Products = () => {
-  const RendeProducts = data.map((product, index) => {
+  const { RenderProducts } = useContext(ProductsContext)
+  const Products = RenderProducts.map((product, index) => {
     if (product.hotSale) {
       return (
         <div key={index} className="hotSale grid-item">
@@ -181,7 +101,7 @@ const Products = () => {
           <option value="">Đánh giá tốt</option>
         </select>
       </div>
-      <div class="grid-container">{RendeProducts}</div>
+      <div class="grid-container">{Products}</div>
       <div className="addProduct">
         <button>Thêm sản phẩm</button>
       </div>
