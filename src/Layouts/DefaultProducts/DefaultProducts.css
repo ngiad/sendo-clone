@@ -168,12 +168,72 @@
     padding:8px 0 ;
 }
 
+
 .hotSeo{
     padding: 16px;
     padding-left: 0;
     font-size: 12px;
     color:  #0f62fe;
 }
+
+
+
+@media screen and  (max-width: 576px){
+    .grid-container{
+      grid-template-columns : 220px 220px;
+    }
+
+    
+    .FooterLayoutProduct {
+        padding: 12px;
+    }
+}
+
+
+@media screen and (max-width: 1024px){
+    .HeaderDefauProducts > .bottom > button{
+        min-width: 128px;
+    }
+    .Outlet-DefaultProduct,
+    .HeaderDefauProducts > .top,
+    .HeaderDefauProducts > .bottom{
+        padding: 0 40px;
+    }
+    .Products > .grid-container{
+      grid-template-columns : 220px 220px 220px  !important;
+    }
+    .FooterLayoutProduct > .center ,
+    .FooterLayoutProduct > .top > .contener{
+        flex-wrap: wrap;
+    }
+
+    .FooterLayoutProduct > .top > .contener > .content,
+    .FooterLayoutProduct > .center > .content{
+        padding: 12px;
+    }
+
+    .FooterLayoutProduct > .bottom{
+        padding: 10px;
+    }
+
+    .FooterLayoutProduct {
+        padding: 12px;
+    }
+
+    .FooterLayoutProduct > .bottom > .contener > .right{
+        margin-left: 20px;
+    }
+
+    .FooterLayoutProduct > .bottom > .right > form > div{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  }
+  
+
+
 
 
 

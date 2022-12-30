@@ -8,7 +8,7 @@ import "./Products.css";
 
 
 const Products = () => {
-  const { RenderProducts } = useContext(ProductsContext)
+  const { RenderProducts,setInputFilter,InputFilter } = useContext(ProductsContext)
   const Products = RenderProducts.map((product, index) => {
     if (product.hotSale) {
       return (
@@ -90,15 +90,20 @@ const Products = () => {
       );
     }
   });
+
+  const handleChangeSelct = (e) => {
+    setInputFilter({...InputFilter, select : e.target.value})
+  }
+
+
   return (
     <div className="Products">
       <div className="top">
         <label htmlFor="FilterProduct">Sắp xếp theo:</label>
-        <select id="FilterProduct">
-          <option value="">Đề cử</option>
-          <option value="">Bán chạy</option>
-          <option value="">Khuyến mãi</option>
-          <option value="">Đánh giá tốt</option>
+        <select onChange={handleChangeSelct} id="FilterProduct">
+          <option value="default">Đề cử</option>
+          <option value="hight">Giá từ cao tới thấp</option>
+          <option value="low">Giá từ thấp tới cao</option>
         </select>
       </div>
       <div class="grid-container">{Products}</div>

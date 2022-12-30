@@ -117,6 +117,111 @@ const data = [
     place: "Hà nội",
     discount: 66,
   },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: true,
+    price: 390000,
+    sales: 10,
+    dealHot: true,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 66,
+    material : "Cát",
+    else : "Hàng không bán"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: true,
+    price: 690000,
+    sales: 10,
+    dealHot: true,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 66,
+    material : "Khác",
+    else : "Chết không mua"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: false,
+    price: 180000,
+    sales: 10,
+    dealHot: false,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 0,
+    material : "Tuyết-mưa",
+    else : "Có video"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: false,
+    price: 180000,
+    sales: 10,
+    dealHot: false,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 0,
+    material : "Chiffon",
+    else : "Có video"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: false,
+    price: 180000,
+    sales: 10,
+    dealHot: false,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 0,
+    material : "Lưới",
+    else : "Để cho vui"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: true,
+    price: 180000,
+    sales: 10,
+    dealHot: false,
+    hotSale: true,
+    place: "Hà nội",
+    discount: 0,
+    material : "Lưới",
+    else : "Để cho vui"
+  },
+  {
+    image:
+      "https://media3.scdn.vn/img4/2022/02_12/PHQiaxArQRmpBT7IZKmn_simg_de2fe0_250x250_maxb.jpg",
+    name: "quần bò cao cấp .chất vải mền mịn. co giản nhẹ. đi chơi mặc nhà đều sang - 33_72123642",
+    trademark: "OEM",
+    Dealsforyou: false,
+    price: 180000,
+    sales: 10,
+    dealHot: true,
+    hotSale: false,
+    place: "Hà nội",
+    discount: 15,
+    material : "Lưới",
+    else : "Để cho vui"
+  },
 ];
 
 const checkProductFilter = (product, Arrquery) => {
@@ -152,6 +257,7 @@ const Context = ({ children }) => {
     material: [],
     else: [],
     search: "",
+    select : "",
   });
 
   const RenderProducts = useMemo(() => {
@@ -176,9 +282,26 @@ const Context = ({ children }) => {
       output = data;
     }
 
+    if(InputFilter.select === "hight"){
+      output = [...output].sort((a,b) => {
+        return  b.price - a.price
+      })
+    }
+
+    if(InputFilter.select === "low"){
+      output = [...output].sort((a,b) => {
+        return  a.price - b.price
+      })
+    }
+
+    if(InputFilter.select === "default"){
+      output = data
+    }
+
     if (InputFilter.search) {
       output = output.filter((item) => item.name.includes(InputFilter.search));
     }
+
 
     if (InputFilter.max && InputFilter.min) {
       output = output.filter((item) =>

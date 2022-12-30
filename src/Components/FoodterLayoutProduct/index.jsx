@@ -12,9 +12,9 @@ const FooterLayoutProduct = () => {
       .split(" ")
       .map((item, index) => {
         return (
-          <span className="hotSeo" key={index}>
+          <p className="hotSeo" key={index}>
             {item}
-          </span>
+          </p>
         );
       });
   return (
@@ -126,7 +126,7 @@ const FooterLayoutProduct = () => {
       </div>
       <div className="end">
         <p>Top tìm kiếm</p>
-        {hotList}
+        <div style={{display : "flex",flexWrap : "wrap"}}>{hotList}</div> 
       </div>
     </div>
   );

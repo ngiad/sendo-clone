@@ -6,7 +6,7 @@ import RenderNavigateProduct from './RenderNavigateProduct'
 
 const NavigateManegerProduct = () => {
   return (
-    <div className='NavigateManegerProduct'>
+    <div style={{position: "sticky"}} className='NavigateManegerProduct'>
       <RenderNavigateProduct category={{title : "Thời trang nữ",properties : {name : "Đầm, váy",type : ["Đầm xòe"]}}}  />
     </div>
   )
